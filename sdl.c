@@ -7,7 +7,7 @@ SDL_GLContext pixel_sdl_glcontext;
 
 SDL_Window *pixel_sdl_new_window(const char *title, int width, int height, unsigned long flags)
 {
-    SDL_Window *window = SDL_CreateWindow(title, 0, 0, width, height, flags | SDL_WINDOW_OPENGL);
+    SDL_Window *window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags | SDL_WINDOW_OPENGL);
     pixel_sdl_glcontext = SDL_GL_CreateContext(window);
 
     return window;
