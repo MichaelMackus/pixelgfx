@@ -7,7 +7,7 @@
 void randomize_buffer(char *buffer)
 {
     // update pixel data & update texture
-    int r = rand() % 255;
+    int r = (rand() % 254) + 1;
     for (int y = 0; y < RENDER_HEIGHT; ++y) {
         for (int x = 0; x < RENDER_WIDTH; ++x) {
             buffer[(y * RENDER_WIDTH * 3) + x*3 + 0] = x / r; // r
@@ -54,6 +54,7 @@ int main()
         double fps = 1000 / (current_time - last_time);
         char title[100];
         sprintf(title, "Opengl SDL Demo (FPS: %f)", fps);
+        printf("%s\n", title);
         SDL_SetWindowTitle(window, title);
         last_time = current_time;
 
