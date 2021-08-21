@@ -64,10 +64,13 @@ void pixel_gfx_update(const char *buffer, char r, char g, char b, char a)
         glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glLoadIdentity();
         glEnable( GL_TEXTURE_2D );
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
         // render texture
         const int iw = pixel_gfx_w;
         const int ih = pixel_gfx_h;
+        glScalef(1.0f, -1.0f, 1.0f);
         glTranslatef( -iw/2, -ih/2, 0 );
         glBegin(GL_QUADS);
             glTexCoord2i(0,0); glVertex2i(0, 0);
